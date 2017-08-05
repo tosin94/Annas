@@ -7,5 +7,4 @@
     <item name="ic_menu_send" type="drawable">@android:drawable/ic_menu_send</item>
     <item name="ic_about_app" type="drawable">@android:drawable/ic_dialog_info</item>
     <item name="ic_contact" type="drawable">@android:drawable/sym_action_email</item>
-    <item name="ic_menu_booking" type="drawable">@android:drawable/edit_text</item>
 </resources>

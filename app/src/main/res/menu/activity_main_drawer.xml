@@ -3,15 +3,15 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_dishes"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Food Gallery" />
 
 
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_order"
+            android:icon="@drawable/deliver_food"
+            android:title="Order Food" />
     </group>
 
     <item android:title="Hair">
@@ -21,14 +21,10 @@
                 android:icon="@drawable/ic_menu_gallery"
                 android:title="Hair Gallery" />
 
-            <item
-                android:id="@+id/nav_hair_styles"
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="View Hairsyles" />
 
             <item
                 android:id="@+id/nav_book_appointement"
-                android:icon="@drawable/ic_menu_booking"
+                android:icon="@drawable/booking"
                 android:title="Book Appointment" />
         </menu>
     </item>
@@ -39,18 +35,14 @@
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
 
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_contact"
                 android:icon="@drawable/ic_contact"
                 android:title="Contact Me" />
 
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_about"
                 android:icon="@drawable/ic_about_app"
                 android:title="About App" />
         </menu>
