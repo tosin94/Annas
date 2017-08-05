@@ -6,19 +6,32 @@
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_camera"
             android:title="Import" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Hair Gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+
+
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
             android:title="Tools" />
     </group>
+
+    <item android:title="Hair">
+        <menu>
+            <item
+                android:id="@+id/nav_gallery"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="Hair Gallery" />
+
+            <item
+                android:id="@+id/nav_hair_styles"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="View Hairsyles" />
+
+            <item
+                android:id="@+id/nav_book_appointement"
+                android:icon="@drawable/ic_menu_booking"
+                android:title="Book Appointment" />
+        </menu>
+    </item>
 
     <item android:title="Communicate">
         <menu>
