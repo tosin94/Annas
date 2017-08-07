@@ -1,9 +1,11 @@
 package tosinomotayo.annas;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -34,6 +36,8 @@ public class HairGallery extends AppCompatActivity {
                 Toast.makeText(HairGallery.this, "" + position, Toast.LENGTH_SHORT).show(); //here no message is being specified
             }
         });
+
+
     }
 
     class ImageAdapter extends BaseAdapter{//source of items to be displayed on the grid
@@ -61,9 +65,12 @@ public class HairGallery extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, View convertView, ViewGroup parent) {//convertView is essential to app performance in terms of memory
             ImageView imageView;
+
+
             if(convertView == null){
+
                 // if it's not recycled, initialize some attributes
                 imageView = new ImageView(mContext);
                 imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
@@ -78,6 +85,28 @@ public class HairGallery extends AppCompatActivity {
             }
 
         private Integer[] mThumbIds = {
+                R.drawable.sample_2, R.drawable.sample_3,
+                R.drawable.sample_4, R.drawable.sample_5,
+                R.drawable.sample_6, R.drawable.sample_7,
+                R.drawable.sample_0, R.drawable.sample_1,
+                R.drawable.sample_2, R.drawable.sample_3,
+                R.drawable.sample_4, R.drawable.sample_5,
+                R.drawable.sample_6, R.drawable.sample_7,
+                R.drawable.sample_0, R.drawable.sample_1,
+                R.drawable.sample_2, R.drawable.sample_3,
+                R.drawable.sample_4, R.drawable.sample_5,
+                R.drawable.sample_6, R.drawable.sample_7,
+                R.drawable.sample_2, R.drawable.sample_3,
+                R.drawable.sample_4, R.drawable.sample_5,
+                R.drawable.sample_6, R.drawable.sample_7,
+                R.drawable.sample_0, R.drawable.sample_1,
+                R.drawable.sample_2, R.drawable.sample_3,
+                R.drawable.sample_4, R.drawable.sample_5,
+                R.drawable.sample_6, R.drawable.sample_7,
+                R.drawable.sample_0, R.drawable.sample_1,
+                R.drawable.sample_2, R.drawable.sample_3,
+                R.drawable.sample_4, R.drawable.sample_5,
+                R.drawable.sample_6, R.drawable.sample_7,
                 R.drawable.sample_2, R.drawable.sample_3,
                 R.drawable.sample_4, R.drawable.sample_5,
                 R.drawable.sample_6, R.drawable.sample_7,

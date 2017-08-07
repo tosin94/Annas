@@ -81,12 +81,12 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        /*switch(id){
+        switch(id){
             case R.id.nav_gallery:
                 Intent i = new Intent(this, HairGallery.class);
                 this.startActivity(i);
                 break;
-        }*/
+        }
 
         if (id == R.id.nav_dishes) {
             // Handle the camera action
@@ -102,4 +102,5 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
