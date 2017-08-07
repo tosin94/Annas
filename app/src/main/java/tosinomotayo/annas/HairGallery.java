@@ -5,7 +5,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -37,6 +39,15 @@ public class HairGallery extends AppCompatActivity {
             }
         });
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);//to allow up navigation
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+        //when nav button is clicked, a call to onOptionsItemSelected() is made
 
     }
 
@@ -121,6 +132,19 @@ public class HairGallery extends AppCompatActivity {
         };
     }
 
+    /*@Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }//to ensure back button is working*/
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {//"android.R.id.home" is thw action for back navigation
+            finish(); // close this activity and return to preview activity (if there is any)
+        }
+        return super.onOptionsItemSelected(item);
+        //cam use above code to set back navigation on toolbar to take you back
+    }
 }
 
