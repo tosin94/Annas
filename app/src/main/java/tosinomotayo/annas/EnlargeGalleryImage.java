@@ -1,27 +1,21 @@
 package tosinomotayo.annas;
 
+
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Point;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 /**
- * Created by tosinomotayo on 06/08/2017.
+ * A simple {@link Fragment} subclass.
  */
-
-public class HairGallery extends AppCompatActivity {
+public class EnlargeGalleryImage extends FragmentActivity {
     private static Integer[] mThumbIds = {
             R.drawable.sample_2, R.drawable.sample_3,
             R.drawable.sample_4, R.drawable.sample_5,
@@ -29,44 +23,24 @@ public class HairGallery extends AppCompatActivity {
     };
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.gallery_layout);
+        setContentView(R.layout.frag_layout);
 
-        //set GridView Parameters
-        final GridView gallery = (GridView) findViewById(R.id.grid_gallery);
-        gallery.setAdapter(new ImageAdapter(this));//sets the data behind the gridView
 
-        gallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {//defining the inner class i will be using
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //a Toast is a view containing a quick little message for the user
-                //TODO add a fragment that will show the image in larger proportions
-                Toast.makeText(HairGallery.this, "" + position, Toast.LENGTH_SHORT).show(); //here no message is being specified
 
-                //final View thumbView = findViewById(R.id.thumb_btn);
-                //zoomImage(thumbView, position);
+        int image_ref = getIntent().getIntExtra("image_ref",R.drawable.error);
+        //ImageView image = (ImageView) findViewById(R.id.thumb_btn);
+        //image.setImageResource(mThumbIds[6]);
 
-                Intent intent  = new Intent(HairGallery.this, EnlargeGalleryImage.class);
-                intent.putExtra("image_ref",position);
-                startActivity(intent);//send image to Enlarge_Gallery
-
-            }
-        });
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        // add back arrow to toolbar
-        if (getSupportActionBar() != null){
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);//to allow up navigation
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-        }
-        //when nav button is clicked, a call to onOptionsItemSelected() is made
-
+        //final View thumbView = findViewById(R.id.thumb_btn);
+        //zoomImage(gallery, mThumbIds[image_ref]);
+        //might not have even needed a fragment
     }
 
-    class ImageAdapter extends BaseAdapter{//source of items to be displayed on the grid
+    class ImageAdapter extends BaseAdapter {//source of items to be displayed on the grid
+        int image_ref = getIntent().getIntExtra("image_ref",R.drawable.error);
+
 
         private Context mContext;
 
@@ -77,7 +51,7 @@ public class HairGallery extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return mThumbIds.length;
+            return 1;
         }
 
         @Override
@@ -102,28 +76,16 @@ public class HairGallery extends AppCompatActivity {
                 imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 imageView.setPadding(8, 8, 8, 8);
+
             } else {
                 imageView = (ImageView) convertView;
             }
 
-            imageView.setImageResource(mThumbIds[position]);
+            imageView = (ImageView) findViewById(R.id.image_enlarge);
+
+            imageView.setImageResource(mThumbIds[1]);
             return imageView;
-            }
-    }
-
-    /*@Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
-    }//to ensure back button is working*/
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {//"android.R.id.home" is thw action for back navigation
-            finish(); // close this activity and return to preview activity (if there is any)
         }
-        return super.onOptionsItemSelected(item);
-        //cam use above code to set back navigation on toolbar to take you back
     }
 
     /*public void zoomImage(View thumbView, int image){

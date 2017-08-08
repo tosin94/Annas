@@ -21,6 +21,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
+
     <include layout="@layout/gallery_content" /> <!--solution was to have Grid in constraint layout-->
 
 

@@ -40,7 +40,7 @@ public class enlarge_gallery_image extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment enlarge_gallery_image.
+     * @return A new instance of fragment EnlargeGalleryImage.
      */
     // TODO: Rename and change types and number of parameters
     public static enlarge_gallery_image newInstance(String param1, String param2) {
@@ -65,7 +65,7 @@ public class enlarge_gallery_image extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_enlarge_gallery_image, container, false);
+        return inflater.inflate(R.layout.frag_content, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
