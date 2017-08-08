@@ -43,14 +43,8 @@ public class HairGallery extends AppCompatActivity {
                 //a Toast is a view containing a quick little message for the user
                 //TODO add a fragment that will show the image in larger proportions
                 Toast.makeText(HairGallery.this, "" + position, Toast.LENGTH_SHORT).show(); //here no message is being specified
-
-                //final View thumbView = findViewById(R.id.thumb_btn);
-                //zoomImage(thumbView, position);
-
-                Intent intent  = new Intent(HairGallery.this, EnlargeGalleryImage.class);
-                intent.putExtra("image_ref",position);
-                startActivity(intent);//send image to Enlarge_Gallery
-
+                Intent i = new Intent(HairGallery.this, EnlargeGalleryImage.class);
+                startActivity(i);
             }
         });
 
@@ -126,9 +120,9 @@ public class HairGallery extends AppCompatActivity {
         //cam use above code to set back navigation on toolbar to take you back
     }
 
-    /*public void zoomImage(View thumbView, int image){
+    public void zoomImage(View thumbView, int image){
         final ImageView holder = (ImageView) findViewById(R.id.image_enlarge);// receive image holder
-        holder.setImageResource(mThumbIds[image]); //sets the image
+        holder.setImageResource(image); //sets the image
 
         //calculations
         final Rect startBounds = new Rect();
@@ -170,7 +164,7 @@ public class HairGallery extends AppCompatActivity {
         //to zoom back out
 
 
-    }*/
+    }
 
 
 }

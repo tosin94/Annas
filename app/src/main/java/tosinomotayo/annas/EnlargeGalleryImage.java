@@ -1,15 +1,13 @@
 package tosinomotayo.annas;
 
 
-import android.content.Context;
+import android.graphics.Point;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
 
 /**
@@ -27,70 +25,22 @@ public class EnlargeGalleryImage extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.frag_layout);
 
-
-
-        int image_ref = getIntent().getIntExtra("image_ref",R.drawable.error);
-        //ImageView image = (ImageView) findViewById(R.id.thumb_btn);
-        //image.setImageResource(mThumbIds[6]);
-
-        //final View thumbView = findViewById(R.id.thumb_btn);
-        //zoomImage(gallery, mThumbIds[image_ref]);
-        //might not have even needed a fragment
-    }
-
-    class ImageAdapter extends BaseAdapter {//source of items to be displayed on the grid
-        int image_ref = getIntent().getIntExtra("image_ref",R.drawable.error);
-
-
-        private Context mContext;
-
-        public ImageAdapter(Context c){
-            mContext = c;
-        }
-
-
-        @Override
-        public int getCount() {
-            return 1;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {//convertView is essential to app performance in terms of memory
-            ImageView imageView;
-
-
-            if(convertView == null){
-
-                // if it's not recycled, initialize some attributes
-                imageView = new ImageView(mContext);
-                imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
-                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                imageView.setPadding(8, 8, 8, 8);
-
-            } else {
-                imageView = (ImageView) convertView;
+        final View thumbView = findViewById(R.id.thumb_btn);
+        thumbView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                zoomImage(thumbView, R.drawable.sample_0);
             }
+        });
 
-            imageView = (ImageView) findViewById(R.id.image_enlarge);
-
-            imageView.setImageResource(mThumbIds[1]);
-            return imageView;
-        }
     }
 
-    /*public void zoomImage(View thumbView, int image){
+
+
+
+    public void zoomImage(View thumbView, int image){
         final ImageView holder = (ImageView) findViewById(R.id.image_enlarge);// receive image holder
-        holder.setImageResource(mThumbIds[image]); //sets the image
+        holder.setImageResource(image); //sets the image
 
         //calculations
         final Rect startBounds = new Rect();
@@ -132,8 +82,7 @@ public class EnlargeGalleryImage extends FragmentActivity {
         //to zoom back out
 
 
-    }*/
-
+    }
 
 }
 
