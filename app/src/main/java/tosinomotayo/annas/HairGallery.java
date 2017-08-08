@@ -22,7 +22,8 @@ import android.widget.Toast;
  */
 
 public class HairGallery extends AppCompatActivity {
-    private static Integer[] mThumbIds = {
+    private static int[] mThumbIds = {//original definition was Integer[] but "int []" also works and helps with sending the intent.
+            //not quite sure yet why Integer[] is prefered but use int [] for now
             R.drawable.sample_2, R.drawable.sample_3,
             R.drawable.sample_4, R.drawable.sample_5,
             R.drawable.sample_6, R.drawable.sample_7
@@ -34,16 +35,25 @@ public class HairGallery extends AppCompatActivity {
         setContentView(R.layout.gallery_layout);
 
         //set GridView Parameters
-        final GridView gallery = (GridView) findViewById(R.id.grid_gallery);
+        GridView gallery = (GridView) findViewById(R.id.grid_gallery);
         gallery.setAdapter(new ImageAdapter(this));//sets the data behind the gridView
+        //also corresponds to class ImageAdapter below
 
         gallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {//defining the inner class i will be using
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //a Toast is a view containing a quick little message for the user
-                //TODO add a fragment that will show the image in larger proportions
-                Toast.makeText(HairGallery.this, "" + position, Toast.LENGTH_SHORT).show(); //here no message is being specified
+                //Toast.makeText(HairGallery.this, "", Toast.LENGTH_SHORT).show(); //here no message is being specified
+                /////////// or ///////////////////////////////////////////////////////////////////////////////////////////////////////
+                //                                                                                                                  //
+                //Toast.makeText(HairGallery.this, "" + position, Toast.LENGTH_SHORT).show();//to show the identifier for the image///
+                // Or just dont have a Toast.makeText() callback                                                                                                                 //
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                //zoomImage(position);
+
                 Intent i = new Intent(HairGallery.this, EnlargeGalleryImage.class);
+                i.putExtra("image", position);
+                i.putExtra("array",mThumbIds);
                 startActivity(i);
             }
         });
@@ -120,16 +130,16 @@ public class HairGallery extends AppCompatActivity {
         //cam use above code to set back navigation on toolbar to take you back
     }
 
-    public void zoomImage(View thumbView, int image){
+    public void zoomImage(int image){
         final ImageView holder = (ImageView) findViewById(R.id.image_enlarge);// receive image holder
-        holder.setImageResource(image); //sets the image
+        holder.setImageResource(mThumbIds[image]); //sets the image
 
         //calculations
         final Rect startBounds = new Rect();
         final Rect finalBounds = new Rect();
         final Point globalOffset = new Point();
 
-        thumbView.getGlobalVisibleRect(startBounds);
+        //thumbView.getGlobalVisibleRect(startBounds);
         findViewById(R.id.container).getGlobalVisibleRect(finalBounds, globalOffset); //this is the frame layout in fragment_layout
         startBounds.offset(-globalOffset.x, -globalOffset.y);
         finalBounds.offset(-globalOffset.x, -globalOffset.y);
@@ -155,7 +165,7 @@ public class HairGallery extends AppCompatActivity {
 
         }
 
-        thumbView.setAlpha(0f);
+        //thumbView.setAlpha(0f);
         holder.setVisibility(View.VISIBLE);
 
         holder.setPivotX(0f);

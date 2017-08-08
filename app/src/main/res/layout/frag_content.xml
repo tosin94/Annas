@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -15,9 +15,9 @@
             android:id="@+id/thumb_btn"
             android:layout_width="100dp"
             android:layout_height="75dp"
-            android:src="@drawable/sample_0"
-            android:scaleType="centerCrop" />
-        </LinearLayout>
+            android:scaleType="centerCrop"
+            />
+        </LinearLayout>-->
 
         <!-- TODO: Update blank fragment layout -->
         <ImageView

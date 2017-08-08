@@ -35,6 +35,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".EnlargeGalleryImage"
+            android:theme="@style/AppTheme.NoActionBar.gallery">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
