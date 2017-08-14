@@ -5,29 +5,59 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class EnlargeGalleryImage extends FragmentActivity {
+
+public class EnlargeGalleryImage extends AppCompatActivity {
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.frag_layout);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
+
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);//to allow up navigation
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
         final int i = getIntent().getIntExtra("image",0);
-        Log.d(getClass().getName(), "value = " + i);
+        //Log.d(getClass().getName(), "value = " + i);//logging
         final int [] imageHolder = getIntent().getIntArrayExtra("array");
 
         zoomImage(imageHolder, i);
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.image_info){//place action here later
+            return true;
+        }
+        else if(id == android.R.id.home){
+            finish();//go back to previous activity
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.enlarge_image_menu, menu);
+        return true;
+    }
+
 
     public void zoomImage(int [] imageHolder, int image){
 
@@ -76,6 +106,7 @@ public class EnlargeGalleryImage extends FragmentActivity {
 
 
     }
+
 
 }
 

@@ -26,7 +26,7 @@
 
         <activity
             android:name=".HairGallery"
-            android:theme="@style/AppTheme.NoActionBar.gallery"
+            android:theme="@style/GalleryTheme"
             android:label="Hair Gallery"
             android:parentActivityName=".MainActivity">
 
@@ -36,7 +36,9 @@
         </activity>
 
         <activity android:name=".EnlargeGalleryImage"
-            android:theme="@style/AppTheme.NoActionBar.gallery">
+            android:theme="@style/GalleryTheme"
+            android:label=""
+            >
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>

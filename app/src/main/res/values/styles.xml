@@ -19,11 +19,17 @@
 
     <style name="gallery_appBar" parent="Base.Theme.AppCompat.Light.DarkActionBar"/>
 
-    <style name="AppTheme.NoActionBar.gallery">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="GalleryTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:colorBackground">@android:color/black</item>
-        <item name="android:colorPrimaryDark" tools:targetApi="lollipop">@android:color/black</item>
+        <item name="colorPrimaryDark">@color/statusBarGallery</item>
+        <item name="colorPrimary">@color/statusBarGallery</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeStyle">@style/context_style</item>
+    </style>
+    
+    <style name="context_style" parent="@style/Widget.AppCompat.ActionMode"><!--
+    for the context menu-->
+        <item name="background">@color/statusBarGallery</item>
     </style>
 
 </resources>
