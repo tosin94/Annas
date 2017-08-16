@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 /**
  * Created by tosinomotayo on 06/08/2017.
@@ -95,7 +96,9 @@ public class HairGallery extends AppCompatActivity {
         gallery.setAdapter(new ImageAdapter(this));//sets the data behind the gridView
         //also corresponds to class ImageAdapter below
         gallery.setLongClickable(true);
-        gallery.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE_MODAL);
+        gallery.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE_MODAL);// this is for batch operations
+        //TODO implement  the action mode for individua views
+        //the topic is "using the contextual action mode"
 
         gallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {//defining the inner class i will be using
             @Override
@@ -117,7 +120,6 @@ public class HairGallery extends AppCompatActivity {
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                 mode.getMenuInflater().inflate(R.menu.context_menu_gallery,menu);
-
                 return true;
             }
 
