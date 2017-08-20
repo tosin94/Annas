@@ -35,7 +35,19 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".EnlargeGalleryImage"
+        <activity
+            android:name=".EnlargeGalleryImage"
+            android:theme="@style/GalleryTheme"
+            android:label=""
+            >
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".FoodGallery"
             android:theme="@style/GalleryTheme"
             android:label=""
             >
