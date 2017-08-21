@@ -97,7 +97,7 @@ public class HairGallery extends AppCompatActivity {
         //also corresponds to class ImageAdapter below
         gallery.setLongClickable(true);
         gallery.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE_MODAL);// this is for batch operations
-        //TODO implement  the action mode for individua views
+        //TODO implement  the action mode for individual views
         //the topic is "using the contextual action mode"
 
         gallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {//defining the inner class i will be using
@@ -150,8 +150,14 @@ public class HairGallery extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {//"android.R.id.home" is the action for back navigation
-            finish(); // close this activity and return to preview activity (if there is any)
+
+        int id = item.getItemId();
+
+        switch (id){
+
+            case android.R.id.home:
+                finish();
+                return true;
         }
         return super.onOptionsItemSelected(item);
         //can use above code to set back navigation on toolbar to take you back

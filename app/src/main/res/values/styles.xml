@@ -25,11 +25,14 @@
         <item name="colorPrimary">@color/statusBarGallery</item>
         <item name="windowActionModeOverlay">true</item>
         <item name="actionModeStyle">@style/context_style</item>
+        <item name="android:itemBackground">@color/statusBarGallery</item>
+        <!-- the item functions depend on the theme in use-->
     </style>
     
     <style name="context_style" parent="@style/Widget.AppCompat.ActionMode"><!--
     for the context menu-->
         <item name="background">@color/statusBarGallery</item>
     </style>
+
 
 </resources>

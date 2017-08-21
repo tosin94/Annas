@@ -86,16 +86,23 @@ public class MainActivity extends AppCompatActivity
                 Intent i = new Intent(this, HairGallery.class);
                 this.startActivity(i);
                 break;
-        }
 
-        if (id == R.id.nav_dishes) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+            case R.id.nav_dishes:
+                i = new Intent(this, FoodGallery.class);
+                this.startActivity(i);
+                break;
 
-        }else if (id == R.id.nav_order) {
+            case R.id.nav_book_appointement:
 
-        } else if (id == R.id.nav_share) {
+                break;
 
+            case R.id.nav_order:
+
+                break;
+
+            case R.id.nav_share:
+
+                break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
