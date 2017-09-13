@@ -23,6 +23,8 @@
         android:verticalSpacing="30dp"
         android:focusable="true"
         android:clickable="true"
-        android:paddingTop="10dp"/>
+        android:paddingTop="10dp"
+        android:listSelector="@drawable/selector"
+        />
 
 </android.support.constraint.ConstraintLayout>

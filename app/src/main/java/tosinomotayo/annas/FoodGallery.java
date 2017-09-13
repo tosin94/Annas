@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ActionMode;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,13 +21,15 @@ import android.widget.ImageView;
  */
 
 public class FoodGallery extends AppCompatActivity {
+    //TODO lock the on long click to just one item or disable long click in its entirety if it does not work
 
     ActionMode actionMode;
 
 
     private static int[] images = {R.drawable.sample_2, R.drawable.sample_3,
             R.drawable.sample_4, R.drawable.sample_5,
-            R.drawable.sample_6, R.drawable.sample_7};
+            R.drawable.sample_6, R.drawable.sample_7
+    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,7 +43,7 @@ public class FoodGallery extends AppCompatActivity {
         gallery.setAdapter(new F_adapter(this));//making the context the foodGallery activity
 
         // add back arrow to toolbar
-        if (getSupportActionBar() != null) {
+        if (getSupportActionBar() != null) {//if its active
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);//to allow up navigation
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         } //when nav button is clicked, a call to onOptionsItemSelected() is made
@@ -48,16 +51,17 @@ public class FoodGallery extends AppCompatActivity {
 
         gallery.setClickable(true);
         gallery.setLongClickable(true);
+
         //gallery.setChoiceMode(GridView.CHOICE_MODE_SINGLE);
         gallery.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                view.setSelected(true);
                 if (actionMode != null) {//basically if actionMode is active then do nothing
                     return false;
                 }
 
                 actionMode = FoodGallery.this.startActionMode(modeCallback);
-                view.setSelected(true);
                 return true;
             }
         });
@@ -68,7 +72,7 @@ public class FoodGallery extends AppCompatActivity {
 
     //implementing handler for contextual toolbar
 
-    private ActionMode.Callback modeCallback = new ActionMode.Callback(){
+    private ActionMode.Callback modeCallback = new ActionMode.Callback(){//startActionMode() calls this interface
 
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
@@ -125,9 +129,12 @@ public class FoodGallery extends AppCompatActivity {
 
             if(convertView == null) {
                 imageView = new ImageView(context);
-                imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+
+                Display display = getWindowManager().getDefaultDisplay();
+                int width = ((display.getWidth()*20)/100);
+                int height = ((display.getHeight()*10)/100);
+                imageView.setLayoutParams(new GridView.LayoutParams(width, height));
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                imageView.setPadding(8, 8, 8, 8);
             }
             else{
                 imageView = (ImageView)convertView;
@@ -147,10 +154,12 @@ public class FoodGallery extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if(id == android.R.id.home){
-            finish();
-            return true;
+        switch(id){
+            case android.R.id.home:
+                finish();
+                return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 }

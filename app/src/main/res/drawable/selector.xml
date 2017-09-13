@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="false" android:drawable="@android:drawable/screen_background_dark_transparent"/>
+
+    <item android:state_focused="true" android:drawable="@android:color/black"/>
+    <!-- Note: Remember that Android applies the first item in the state list that matches the current state of the object.
+    So, if the first item in the list contains none of the state attributes above, then it is applied every time,
+    which is why your default value should always be last
+    so i have to put the default behaviour in case none of the above evaluate to true
+    -->
+
+    <item android:drawable="@android:drawable/screen_background_dark_transparent"/>
+
+
+</selector>

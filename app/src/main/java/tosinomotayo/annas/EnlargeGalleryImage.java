@@ -42,11 +42,13 @@ public class EnlargeGalleryImage extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.image_info){//place action here later
-            return true;
-        }
-        else if(id == android.R.id.home){
-            finish();//go back to previous activity
+        switch (id){
+            case R.id.image_info:
+                return true;
+
+            case android.R.id.home:
+                finish();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

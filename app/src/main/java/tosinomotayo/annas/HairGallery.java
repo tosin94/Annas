@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ActionMode;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -64,7 +65,10 @@ public class HairGallery extends AppCompatActivity {
 
                 // if it's not recycled, initialize some attributes
                 imageView = new ImageView(mContext);
-                imageView.setLayoutParams(new GridView.LayoutParams(200, 200));
+                Display display = getWindowManager().getDefaultDisplay();
+                int width = ((display.getWidth()*20)/100);
+                int height = ((display.getHeight()*10)/100);
+                imageView.setLayoutParams(new GridView.LayoutParams(width, height));
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 //imageView.setPadding(8, 8, 8, 8); not used as images could have different aspect ratios
             } else {

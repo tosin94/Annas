@@ -8,7 +8,6 @@
     tools:context="tosinomotayo.annas.FoodGallery"
     tools:showIn="@layout/food_layout">
 
-
     <GridView
         android:id="@+id/food_grid"
         android:layout_width="fill_parent"
@@ -23,6 +22,9 @@
         android:verticalSpacing="30dp"
         android:focusable="true"
         android:clickable="true"
-        android:paddingTop="10dp"/>
+        android:paddingTop="10dp"
+        android:listSelector="@drawable/selector"
+        />
+
 
 </android.support.constraint.ConstraintLayout>
