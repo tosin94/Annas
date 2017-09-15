@@ -23,8 +23,10 @@ import android.widget.Toast;
  * Created by tosinomotayo on 06/08/2017.
  */
 
-public class HairGallery extends AppCompatActivity {
-    private static int[] mThumbIds = {//original definition was Integer[] but "int []" also works and helps with sending the intent.
+public class HairGallery extends AppCompatActivity
+{
+    private static int[] mThumbIds =
+            {//original definition was Integer[] but "int []" also works and helps with sending the intent.
             //not quite sure yet why Integer[] is prefered but use int [] for now
             R.drawable.sample_2, R.drawable.sample_3,
             R.drawable.sample_4, R.drawable.sample_5,
@@ -33,7 +35,8 @@ public class HairGallery extends AppCompatActivity {
 
 
 
-    class ImageAdapter extends BaseAdapter {
+    class ImageAdapter extends BaseAdapter
+    {
 
         private Context mContext;
 
@@ -57,11 +60,13 @@ public class HairGallery extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {//convertView is essential to app performance in terms of memory
+        public View getView(int position, View convertView, ViewGroup parent)
+        {//convertView is essential to app performance in terms of memory
             ImageView imageView;
 
 
-            if (convertView == null) {
+            if (convertView == null)
+            {
 
                 // if it's not recycled, initialize some attributes
                 imageView = new ImageView(mContext);
@@ -82,7 +87,8 @@ public class HairGallery extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gallery_layout);
 
@@ -147,13 +153,15 @@ public class HairGallery extends AppCompatActivity {
     }//END ON CREATE
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         getMenuInflater().inflate(R.menu.gallery_menu, menu);//responsible for the MAIN.XML
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
 
         int id = item.getItemId();
 

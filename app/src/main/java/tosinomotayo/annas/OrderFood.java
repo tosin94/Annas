@@ -21,7 +21,7 @@ public class OrderFood extends ListActivity {
     to create a view for each item that's something other than a TextView (for example,
     if you want an ImageView for each array item), extend the ArrayAdapter class and override getView() to
     return the type of view you want for each item.
-    TODO look at method below - this is how i would overide toString()
+    TODO look at method below - this is how i would override toString()
 
     class MyArrayAdapter extends ArrayAdapter
 
