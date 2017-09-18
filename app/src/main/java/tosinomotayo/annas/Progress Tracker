@@ -1,0 +1,14 @@
+                                #################################   PROGRESS TRACKER/TO-DO FOR APP DEVELOPMENT ################################################
+
+
+#### 18th Sept - 25 sept 2017 OBJECTIVES ####
+
+*   Main page will now be a login screen (Main Activity will now be the login screen) - sort out later
+*   ADD another Gallery for the hair stylists ( most likely a listview for this)
+*   Check which areas of the app will be using recycler view and start implementing
+*   Add a toast message for the when the user adds to the basket
+*   Make a gallery for order food. Layout will be like that of just eat. (possibly be using recycler view as there might be a lot of info to display)
+*   Research Adequate Database to use (Azure or SQL developer. could also use sql developer for a more visual view of the database
+
+
+

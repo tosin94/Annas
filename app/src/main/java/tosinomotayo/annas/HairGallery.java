@@ -2,6 +2,7 @@ package tosinomotayo.annas;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -63,16 +64,19 @@ public class HairGallery extends AppCompatActivity
         public View getView(int position, View convertView, ViewGroup parent)
         {//convertView is essential to app performance in terms of memory
             ImageView imageView;
-
+            Point size = new Point();
 
             if (convertView == null)
             {
-
                 // if it's not recycled, initialize some attributes
                 imageView = new ImageView(mContext);
+
                 Display display = getWindowManager().getDefaultDisplay();
-                int width = ((display.getWidth()*20)/100);
-                int height = ((display.getHeight()*10)/100);
+                display.getSize(size);
+
+                int width = ( size.x ) *20/100;
+                int height = ( size.y) *20/100;
+
                 imageView.setLayoutParams(new GridView.LayoutParams(width, height));
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 //imageView.setPadding(8, 8, 8, 8); not used as images could have different aspect ratios

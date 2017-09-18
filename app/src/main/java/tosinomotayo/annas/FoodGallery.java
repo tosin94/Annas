@@ -1,6 +1,7 @@
 package tosinomotayo.annas;
 
 import android.content.Context;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -29,7 +30,7 @@ public class FoodGallery extends AppCompatActivity {
     private static int[] images = {R.drawable.sample_2, R.drawable.sample_3,
             R.drawable.sample_4, R.drawable.sample_5,
             R.drawable.sample_6, R.drawable.sample_7
-    };
+    };//TODO REMOVE THIS AND PULL DATA FROM THE DATBASE INSTEAD (FOR THE FUTURE)
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -126,13 +127,17 @@ public class FoodGallery extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
 
             ImageView imageView;
+            Point outSize = new Point();
 
             if(convertView == null) {
+
                 imageView = new ImageView(context);
 
-                Display display = getWindowManager().getDefaultDisplay();
-                int width = ((display.getWidth()*20)/100);
-                int height = ((display.getHeight()*10)/100);
+                Display display = getWindowManager().getDefaultDisplay();//using window manager because this is a request from the activity context
+                display.getSize(outSize);
+                int width = ( outSize.x ) * 20/100;
+                int height = ( outSize.y ) * 20/100;
+
                 imageView.setLayoutParams(new GridView.LayoutParams(width, height));
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }

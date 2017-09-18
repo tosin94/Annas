@@ -13,9 +13,6 @@
         android:id="@+id/text_Main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="There will be a gallery for the food that is possible and then a different view (preferably a list view that will look a bit like just-eats design. This will be for order food
-also add a toast for the when the user presses the basket. toast will say 'added to basket', also i can use sql developer or microsoft azure for the database at home. research which is the best to use.
-can also use sql workbench for a visual creation of the database"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
