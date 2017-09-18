@@ -16,7 +16,7 @@
 
 *   finish database on management studio first and then transfer it to sql lite
 *   https://developer.android.com/training/basics/data-storage/databases.html
-    -   place all database related info in a diffesrent package
+    -   place all database related info in a different package
     -   create a separate class for all the database build queries and a different one to instantiate, run those queries and access the database
     -   try placing database schema in one file (all the strings and table names, etc...), and a file for the database queries and accessing the database. (make fields and etc.. private where necessary)
 
