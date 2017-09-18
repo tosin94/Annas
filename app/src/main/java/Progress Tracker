@@ -19,12 +19,17 @@
     -   place all database related info in a different package
     -   create a separate class for all the database build queries and a different one to instantiate, run those queries and access the database
     -   try placing database schema in one file (all the strings and table names, etc...), and a file for the database queries and accessing the database. (make fields and etc.. private where necessary)
+        -   group queries into methods ( dont necessarily have to follow the way android did the storing queries in strings part )
+            e.g public void createTables(){ will contain all the queries for creating all the tables } .....
+    -   close database connections on appropriate onDestroy() methods
 
 
 ###############
 
-*   tip from Ramnick -> use an android sqlite database and a server (so local and external server but less expensive network tranactions). they will both be in sync and there will not need to be any expensive trasnfer of information such as images itself. instead
+*   tip from Ramnick -> use an android sqlite database and a server (so local and external server but less expensive network transactions). they will both be in sync and there will not need to be any expensive trasnfer of information such as images itself. instead
 the transfer of info could just be things like ID and unique info that can help identify more information
+
+*   ensure that when users perform actions that updates the database, there will be no duplicates or loss of information. ensure all databases are in sync.
 
 ###############
 
