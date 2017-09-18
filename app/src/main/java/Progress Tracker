@@ -3,7 +3,6 @@
 
 #### 18th Sept - 25 sept 2017 OBJECTIVES ####
 
-*   Main page will now be a login screen (Main Activity will now be the login screen) and the old main activity will be page it transitions to when login is successful - sort out later
 *   Make a gallery for order food. Layout will be like that of just-eat. (possibly be using recycler view as there might be a lot of info to display)
 *   ADD another Gallery for the hair stylists ( most likely a listview for this)
 *   Add a toast message for when the user adds to the basket
@@ -11,6 +10,7 @@
 *   Research Adequate Database to use (Azure or SQL developer. could also use sql developer for a more visual view of the database
 *   Add a logger in error prone and critical areas of the app. (log file will be maintained by a script which will clear file contents periodically)
 *   Have a look at implementing Services and Content providers
+*   Main page will now be a login screen (Main Activity will now be the login screen) and the old main activity will be page it transitions to when login is successful - sort out later
 
 ###############
 
