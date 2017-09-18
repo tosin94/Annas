@@ -12,12 +12,21 @@
 *   Have a look at implementing Services and Content providers
 *   Main page will now be a login screen (Main Activity will now be the login screen) and the old main activity will be page it transitions to when login is successful - sort out later
 
+####    FOR DATABASE    ####
+
+*   finish database on management studio first and then transfer it to sql lite
+*   https://developer.android.com/training/basics/data-storage/databases.html
+    -   place all database related info in a diffesrent package
+    -   create a separate class for all the database build queries and a different one to instantiate, run those queries and access the database
+    -   try placing database schema in one file (all the strings and table names, etc...), and a file for the database queries and accessing the database. (make fields and etc.. private where necessary)
+
+
 ###############
 
 *   tip from Ramnick -> use an android sqlite database and a server (so local and external server but less expensive network tranactions). they will both be in sync and there will not need to be any expensive trasnfer of information such as images itself. instead
 the transfer of info could just be things like ID and unique info that can help identify more information
 
-#######################
+###############
 
 
 
