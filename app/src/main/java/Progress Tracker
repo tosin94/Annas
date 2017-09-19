@@ -16,12 +16,17 @@
 
 *   finish database on management studio first and then transfer it to sql lite
 *   https://developer.android.com/training/basics/data-storage/databases.html
-    -   place all database related info in a different package
+    -   place all database related info in a different package - DONE
     -   create a separate class for all the database build queries and a different one to instantiate, run those queries and access the database
     -   try placing database schema in one file (all the strings and table names, etc...), and a file for the database queries and accessing the database. (make fields and etc.. private where necessary)
         -   group queries into methods ( dont necessarily have to follow the way android did the storing queries in strings part )
             e.g public void createTables(){ will contain all the queries for creating all the tables } .....
     -   close database connections on appropriate onDestroy() methods
+    -   use Log.d for logging messages
+*   must have a try-catch for any statements or queries sent to the database
+* use try-catch for when user is performing read and write operations on the database.
+    -   first statement in the try block will be a check for an internet connection.
+        -   there will be a nested try block that will check if the external database was successfully updated. if updated, it will allow updating of the local database.
 
 
 ###############

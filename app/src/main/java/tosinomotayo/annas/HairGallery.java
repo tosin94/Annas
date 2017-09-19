@@ -51,7 +51,8 @@ public class HairGallery extends AppCompatActivity
         }
 
         @Override
-        public Object getItem(int position) {
+        public Object getItem(int position)
+        {
             return null;
         }
 

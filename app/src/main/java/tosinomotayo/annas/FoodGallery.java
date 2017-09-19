@@ -21,7 +21,8 @@ import android.widget.ImageView;
  * Created by tosinomotayo on 16/08/2017.
  */
 
-public class FoodGallery extends AppCompatActivity {
+public class FoodGallery extends AppCompatActivity
+{
     //TODO lock the on long click to just one item or disable long click in its entirety if it does not work
 
     ActionMode actionMode;
@@ -33,7 +34,8 @@ public class FoodGallery extends AppCompatActivity {
     };//TODO REMOVE THIS AND PULL DATA FROM THE DATBASE INSTEAD (FOR THE FUTURE)
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.food_layout);
 
@@ -44,7 +46,8 @@ public class FoodGallery extends AppCompatActivity {
         gallery.setAdapter(new F_adapter(this));//making the context the foodGallery activity
 
         // add back arrow to toolbar
-        if (getSupportActionBar() != null) {//if its active
+        if (getSupportActionBar() != null)
+        {//if its active
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);//to allow up navigation
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         } //when nav button is clicked, a call to onOptionsItemSelected() is made
@@ -54,9 +57,11 @@ public class FoodGallery extends AppCompatActivity {
         gallery.setLongClickable(true);
 
         //gallery.setChoiceMode(GridView.CHOICE_MODE_SINGLE);
-        gallery.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        gallery.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener()
+        {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id)
+            {
                 view.setSelected(true);
                 if (actionMode != null) {//basically if actionMode is active then do nothing
                     return false;
@@ -73,58 +78,69 @@ public class FoodGallery extends AppCompatActivity {
 
     //implementing handler for contextual toolbar
 
-    private ActionMode.Callback modeCallback = new ActionMode.Callback(){//startActionMode() calls this interface
+    private ActionMode.Callback modeCallback = new ActionMode.Callback()
+    {//startActionMode() calls this interface
 
         @Override
-        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+        public boolean onCreateActionMode(ActionMode mode, Menu menu)
+        {
             mode.getMenuInflater().inflate(R.menu.context_menu_gallery,menu);
             return true;
         }
 
         @Override
-        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu)
+        {
             return false;
         }
 
         @Override
-        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item)
+        {
             return false;
         }
 
         @Override
-        public void onDestroyActionMode(ActionMode mode) {
+        public void onDestroyActionMode(ActionMode mode)
+        {
             actionMode = null;
 
         }
     };
 
-    class F_adapter extends BaseAdapter{
+    class F_adapter extends BaseAdapter
+    {
         private Context context;
 
 
-        public F_adapter(Context c){
+        public F_adapter(Context c)
+        {
 
             context = c;
         }
 
         @Override
-        public int getCount() {
+        public int getCount()
+        {
 
             return images.length;
         }
 
         @Override
-        public Object getItem(int position) {
+        public Object getItem(int position)
+        {
             return null;
         }
 
         @Override
-        public long getItemId(int position) {
+        public long getItemId(int position)
+        {
             return 0;
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, View convertView, ViewGroup parent)
+        {
 
             ImageView imageView;
             Point outSize = new Point();
@@ -150,16 +166,19 @@ public class FoodGallery extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         getMenuInflater().inflate(R.menu.gallery_menu, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         int id = item.getItemId();
 
-        switch(id){
+        switch(id)
+        {
             case android.R.id.home:
                 finish();
                 return true;
