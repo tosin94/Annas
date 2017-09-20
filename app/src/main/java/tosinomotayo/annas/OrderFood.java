@@ -1,10 +1,12 @@
 package tosinomotayo.annas;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -50,6 +52,8 @@ public class OrderFood extends AppCompatActivity
         @Override
         public CustomAdapter.CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType)// responsible for the actual data
         {
+            //it is of type layout inflater
+            //LayoutInflater inflater = null;
 
             return null;
         }
