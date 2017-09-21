@@ -8,7 +8,7 @@
             android:title="Food Gallery" />
 
         <item
-            android:id="@+id/nav_order"
+            android:id="@+id/order_food"
             android:icon="@drawable/deliver_food"
             android:title="Order Food" />
     </group>

@@ -97,8 +97,9 @@ public class MainActivity extends AppCompatActivity
 
                 break;
 
-            case R.id.nav_order:
-
+            case R.id.order_food:
+                i = new Intent(this, OrderFood.class);
+                this.startActivity(i);
                 break;
 
             case R.id.nav_share:

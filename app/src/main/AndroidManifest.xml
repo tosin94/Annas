@@ -59,6 +59,17 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".OrderFood"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".MainActivity"
+            >
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

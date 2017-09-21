@@ -1,6 +1,7 @@
 package tosinomotayo.annas;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -69,6 +70,19 @@ public class FoodGallery extends AppCompatActivity
 
                 actionMode = FoodGallery.this.startActionMode(modeCallback);
                 return true;
+            }
+        });
+
+        //enlarge image when its is clicked
+        gallery.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
+                Intent i = new Intent(FoodGallery.this, EnlargeGalleryImage.class);
+                i.putExtra("image", position);
+                i.putExtra("array", images);
+                startActivity(i);
             }
         });
     }

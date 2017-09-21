@@ -56,7 +56,7 @@ public class EnlargeGalleryImage extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.enlarge_image_menu, menu);
+        getMenuInflater().inflate(R.menu.context_menu_gallery, menu);
         return true;
     }
 

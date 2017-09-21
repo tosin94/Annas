@@ -5,10 +5,14 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * Created by tosinomotayo on 27/08/2017.
@@ -17,11 +21,7 @@ import android.view.ViewGroup;
 public class OrderFood extends AppCompatActivity
 {
 
-    final String[] menu_list =
-            {
-                    "Mains","starters","test1","test2","test3"
-
-            };
+    public ArrayList<String> textList = new ArrayList<>();
 
 
     @Override
@@ -30,55 +30,85 @@ public class OrderFood extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.order_layout); //TODO add layout file
 
+        textList.add("main");
+        textList.add("desert");
+        textList.add("drinks");
+        textList.add( "hello");
+        textList.add("main");
+        textList.add("desert");
+        textList.add("drinks");
+        textList.add( "hello");
+        textList.add("main");
+        textList.add("desert");
+        textList.add("drinks");
+        textList.add( "hello");
+        textList.add("main");
+        textList.add("desert");
+        textList.add("drinks");
+        textList.add( "hello");
+
+        LinearLayoutManager layout = new LinearLayoutManager(this);
+        layout.setOrientation(LinearLayoutManager.VERTICAL);
+
         RecyclerView myRecyclerView = (RecyclerView) findViewById(R.id.order_layout);
-        myRecyclerView.setAdapter(new CustomAdapter());
+        myRecyclerView.setAdapter(new CustomAdapter(this));
+        myRecyclerView.setLayoutManager(layout);
+
     }
 
 
+    //#######################################################
+    class myViewHolder extends RecyclerView.ViewHolder
+    {
+        TextView textView;
+        public myViewHolder(View itemView)
+        {
+            super(itemView);
+            textView = (TextView) itemView.findViewById(R.id.orderTextView);
 
-    class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder>
+            textView.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+
+
+                }
+            });
+        }
+    }
+    //##############################################################
+
+    class CustomAdapter extends RecyclerView.Adapter<myViewHolder>
     {
         //TODO define dataType that will be receiving the data
+        private Context context;
 
-        public CustomAdapter()//this will depend on the kind of data received
+        public CustomAdapter(Context ctx)//this will depend on the kind of data received
         {
-
-        }
-
-        //#######################################################
-        class CustomViewHolder extends RecyclerView.ViewHolder //responsible for the way the data is represented
-        {
-            public CustomViewHolder(View itemView)
-            {
-                super(itemView);
-                View viewHolder = itemView;
-            }
-
-        }
-        //##############################################################
-
-        @Override
-        public CustomAdapter.CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType)// responsible for the actual data
-        {
-            //it is of type layout inflater
-            //LayoutInflater inflater = null;
-
-            return null;
+            this.context = ctx;
         }
 
         @Override
-        public void onBindViewHolder(CustomViewHolder holder, int position)
+        public myViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
         {
-            //position is the viewHolders position in Recycler view
+            View itemView = getLayoutInflater().inflate(R.layout.order_content,parent,false);
+
+            return new myViewHolder(itemView);
+        }
+
+        @Override
+        public void onBindViewHolder(myViewHolder holder, int position)
+        {
+            String textItem = textList.get(position);
+            holder.textView.setText(textItem);
 
         }
 
         @Override
         public int getItemCount()
         {
-            //will return how many items are in the data holder ( data holder will be in constructor )
-            return 0;
+            return textList.size();
         }
-
     }
 }
