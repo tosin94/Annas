@@ -16,6 +16,14 @@ import android.view.ViewGroup;
 
 public class OrderFood extends AppCompatActivity
 {
+
+    final String[] menu_list =
+            {
+                    "Mains","starters","test1","test2","test3"
+
+            };
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {

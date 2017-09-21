@@ -13,6 +13,7 @@
 *   Add a logger in error prone and critical areas of the app. (log file will be maintained by a script which will clear file contents periodically)
 *   Have a look at implementing Services and Content providers
 *   Main page will now be a login screen (Main Activity will now be the login screen) and the old main activity will be page it transitions to when login is successful - sort out later
+*   Have a logic where it refuses a booking if a user tries to book a hair appointment in a time slot that is smaller than the time it takes to do the hair.
 
 ####    FOR DATABASE    ####
 
