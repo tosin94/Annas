@@ -2,7 +2,7 @@
 
 ## different font definitions can be found at -> https://developer.android.com/guide/topics/resources/more-resources.html#Dimension ##
 ## another useful link -> https://material.io/guidelines/layout/units-measurements.html#units-measurements-scaleable-pixels-sp ##
-
+##  recycler view with multiple views -> https://www.journaldev.com/12372/android-recyclerview-example ##
 #### 18th Sept - 25 sept 2017 OBJECTIVES ####
 
 *   Make a gallery for order food. Layout will be like that of just-eat. (possibly be using recycler view as there might be a lot of info to display)
@@ -22,8 +22,6 @@
     -   place all database related info in a different package - DONE
     -   create a separate class for all the database build queries and a different one to instantiate, run those queries and access the database
     -   try placing database schema in one file (all the strings and table names, etc...), and a file for the database queries and accessing the database. (make fields and etc.. private where necessary)
-        -   group queries into methods ( dont necessarily have to follow the way android did the storing queries in strings part )
-            e.g public void createTables(){ will contain all the queries for creating all the tables } .....
     -   close database connections on appropriate onDestroy() methods
     -   use Log.d for logging messages
 *   must have a try-catch for any statements or queries sent to the database

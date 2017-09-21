@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -20,15 +21,14 @@ import java.util.ArrayList;
 
 public class OrderFood extends AppCompatActivity
 {
-
-    public ArrayList<String> textList = new ArrayList<>();
+    private ArrayList<String> textList = new ArrayList<>();
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.order_layout); //TODO add layout file
+        setContentView(R.layout.order_layout);
 
         textList.add("main");
         textList.add("desert");
@@ -50,7 +50,7 @@ public class OrderFood extends AppCompatActivity
         LinearLayoutManager layout = new LinearLayoutManager(this);
         layout.setOrientation(LinearLayoutManager.VERTICAL);
 
-        RecyclerView myRecyclerView = (RecyclerView) findViewById(R.id.order_layout);
+        RecyclerView myRecyclerView = (RecyclerView) findViewById(R.id.order_recycler);
         myRecyclerView.setAdapter(new CustomAdapter(this));
         myRecyclerView.setLayoutManager(layout);
 
@@ -81,10 +81,10 @@ public class OrderFood extends AppCompatActivity
 
     class CustomAdapter extends RecyclerView.Adapter<myViewHolder>
     {
-        //TODO define dataType that will be receiving the data
+        private LayoutInflater inflater = getLayoutInflater();
         private Context context;
 
-        public CustomAdapter(Context ctx)//this will depend on the kind of data received
+        public CustomAdapter(Context ctx)
         {
             this.context = ctx;
         }
@@ -92,7 +92,7 @@ public class OrderFood extends AppCompatActivity
         @Override
         public myViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
         {
-            View itemView = getLayoutInflater().inflate(R.layout.order_content,parent,false);
+            View itemView = inflater.inflate(R.layout.order_content,parent,false);
 
             return new myViewHolder(itemView);
         }
