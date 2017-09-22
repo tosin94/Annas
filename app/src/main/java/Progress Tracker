@@ -3,6 +3,8 @@
 ## different font definitions can be found at -> https://developer.android.com/guide/topics/resources/more-resources.html#Dimension ##
 ## another useful link -> https://material.io/guidelines/layout/units-measurements.html#units-measurements-scaleable-pixels-sp ##
 ##  recycler view with multiple views -> https://www.journaldev.com/12372/android-recyclerview-example ##
+##  ensuring images preserve their size in relation to the screen -> https://developer.android.com/training/multiscreen/screensizes.html    ##
+    -> https://developer.android.com/guide/practices/screens_support.html#qualifiers ##
 
 #### 18th Sept - 25 sept 2017 OBJECTIVES ####
 
@@ -15,6 +17,7 @@
 *   Have a look at implementing Services and Content providers
 *   Main page will now be a login screen (Main Activity will now be the login screen) and the old main activity will be page it transitions to when login is successful - sort out later
 *   Have a logic where it refuses a booking if a user tries to book a hair appointment in a time slot that is smaller than the time it takes to do the hair.
+*   have a look at configuration qualifiers for use for any images used in the app
 
 ####    FOR DATABASE    ####
 

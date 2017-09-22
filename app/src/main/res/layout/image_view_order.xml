@@ -8,9 +8,10 @@
     <ImageView
 
         android:id="@+id/recycler_image"
-        android:layout_width="100px"
-        android:layout_height="100px"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_gravity="center_horizontal"
+        android:scaleType="centerInside"
         />
 
 </LinearLayout>
