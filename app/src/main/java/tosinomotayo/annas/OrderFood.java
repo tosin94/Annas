@@ -21,8 +21,8 @@ import java.util.ArrayList;
 
 public class OrderFood extends AppCompatActivity
 {
-    private ArrayList<String> textList = new ArrayList<>();
 
+    private ArrayList<Object> textList = new ArrayList();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -30,85 +30,140 @@ public class OrderFood extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.order_layout);
 
-        textList.add("main");
-        textList.add("desert");
-        textList.add("drinks");
-        textList.add( "hello");
-        textList.add("main");
-        textList.add("desert");
-        textList.add("drinks");
-        textList.add( "hello");
-        textList.add("main");
-        textList.add("desert");
-        textList.add("drinks");
-        textList.add( "hello");
-        textList.add("main");
-        textList.add("desert");
-        textList.add("drinks");
-        textList.add( "hello");
+        textList.add(new Model(Model.image_type,R.drawable.icon));
+        textList.add(new Model(Model.text_type,"Main"));
+        textList.add(new Model(Model.text_type,"drinks"));
+        textList.add(new Model(Model.text_type, "hello"));
+        textList.add(new Model(Model.text_type,"Desert"));
+        textList.add(new Model(Model.text_type,"Main"));
+        textList.add(new Model(Model.text_type,"drinks"));
+        textList.add(new Model(Model.text_type, "hello"));
+        textList.add(new Model(Model.text_type,"Desert"));
+        textList.add(new Model(Model.text_type,"Main"));
+        textList.add(new Model(Model.text_type,"drinks"));
+        textList.add(new Model(Model.text_type, "hello"));
+        textList.add(new Model(Model.text_type,"Desert"));
+        textList.add(new Model(Model.text_type,"Main"));
+        textList.add(new Model(Model.text_type,"drinks"));
+        textList.add(new Model(Model.text_type, "hello"));
+        textList.add(new Model(Model.text_type,"Desert"));
+
 
         LinearLayoutManager layout = new LinearLayoutManager(this);
         layout.setOrientation(LinearLayoutManager.VERTICAL);
 
         RecyclerView myRecyclerView = (RecyclerView) findViewById(R.id.order_recycler);
-        myRecyclerView.setAdapter(new CustomAdapter(this));
+        myRecyclerView.setAdapter(new CustomAdapter(this,textList));
         myRecyclerView.setLayoutManager(layout);
 
     }
 
 
-    //#######################################################
-    class myViewHolder extends RecyclerView.ViewHolder
+    class CustomAdapter extends RecyclerView.Adapter
     {
-        TextView textView;
-        public myViewHolder(View itemView)
-        {
-            super(itemView);
-            textView = (TextView) itemView.findViewById(R.id.orderTextView);
-
-            textView.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View v)
-                {
-
-
-                }
-            });
-        }
-    }
-    //##############################################################
-
-    class CustomAdapter extends RecyclerView.Adapter<myViewHolder>
-    {
+        private ArrayList<Object> data = new ArrayList();
         private LayoutInflater inflater = getLayoutInflater();
         private Context context;
 
-        public CustomAdapter(Context ctx)
+        public CustomAdapter(Context ctx, ArrayList<Object> textList)
         {
+            this.data = textList;
             this.context = ctx;
         }
 
         @Override
-        public myViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
         {
-            View itemView = inflater.inflate(R.layout.order_content,parent,false);
+            View itemView;
+            switch (viewType)
+            {
+                case Model.text_type:
+                    itemView = inflater.inflate(R.layout.text_view_order,parent,false);
+                    return new TextViewHolder(itemView);
 
-            return new myViewHolder(itemView);
+                case Model.image_type:
+                    itemView = inflater.inflate(R.layout.image_view_order,parent,false);
+                    return new ImageViewHolder(itemView);
+            }
+
+            return null;
         }
 
         @Override
-        public void onBindViewHolder(myViewHolder holder, int position)
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            String textItem = textList.get(position);
-            holder.textView.setText(textItem);
+            Model object = (Model)data.get(position);
+            if ( object != null)
+            {
+                switch ( object.type)
+                {
+                    case Model.image_type:
+                        ((ImageViewHolder) holder).image.setImageResource(object.data);
+                        break;
 
+                    case Model.text_type:
+                        ((TextViewHolder) holder).textView.setText(object.text);
+                        break;
+                }
+            }
         }
 
         @Override
         public int getItemCount()
         {
-            return textList.size();
+            return data.size();
         }
+
+        @Override
+        public int getItemViewType(int position)
+        {
+            Model object = (Model)data.get(position);
+            switch(object.type)
+            {
+                case Model.image_type:
+                    return Model.image_type;
+
+                case Model.text_type:
+                    return Model.text_type;
+            }
+            return super.getItemViewType(position);
+        }
+
+        //#######################################################
+        //              TextView Holder
+        //#######################################################
+        class TextViewHolder extends RecyclerView.ViewHolder
+        {
+            TextView textView;
+
+            public TextViewHolder(View itemView)
+            {
+                super(itemView);
+                this.textView = (TextView) itemView.findViewById(R.id.orderTextView);
+
+            }
+        }
+        //##############################################################
+        //                  TextView Holder
+        //##############################################################
+
+        //#######################################################
+        //              ImageView Holder
+        //#######################################################
+        class ImageViewHolder extends RecyclerView.ViewHolder
+        {
+            ImageView image;
+
+            public ImageViewHolder(View itemView)
+            {
+                super(itemView);
+                this.image = (ImageView) itemView.findViewById(R.id.recycler_image);
+
+            }
+        }
+        //#######################################################
+        //              ImageView Holder
+        //#######################################################
+
     }
 }

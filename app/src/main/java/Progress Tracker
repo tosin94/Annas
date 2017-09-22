@@ -3,6 +3,7 @@
 ## different font definitions can be found at -> https://developer.android.com/guide/topics/resources/more-resources.html#Dimension ##
 ## another useful link -> https://material.io/guidelines/layout/units-measurements.html#units-measurements-scaleable-pixels-sp ##
 ##  recycler view with multiple views -> https://www.journaldev.com/12372/android-recyclerview-example ##
+
 #### 18th Sept - 25 sept 2017 OBJECTIVES ####
 
 *   Make a gallery for order food. Layout will be like that of just-eat. (possibly be using recycler view as there might be a lot of info to display)
