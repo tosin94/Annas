@@ -160,7 +160,7 @@ public class HairGallery extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(R.menu.gallery_menu, menu);//responsible for the MAIN.XML
+        getMenuInflater().inflate(R.menu.gallery_menu, menu);
         return true;
     }
 
