@@ -1,4 +1,4 @@
-package tosinomotayo.DB;
+package tosinomotayo.annas.DB;
 
 import android.provider.BaseColumns;
 
@@ -18,7 +18,7 @@ public final class DatabaseContract
     {
         /*
         can instantiate columns here and then import all of them using the wildcard operator
-        e.g import tosinomotayo.DB.DatabaseContract.DB_entry.* (this import statement will be in the AppDatabase file)
+        e.g import tosinomotayo.annas.DB.DatabaseContract.DB_entry.* (this import statement will be in the AppDatabase file)
         */
         public static final String create_tables =
 
