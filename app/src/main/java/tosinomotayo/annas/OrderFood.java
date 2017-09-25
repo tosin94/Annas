@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -90,7 +91,7 @@ public class OrderFood extends AppCompatActivity
         }
 
         @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position)
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position)
         {
             Model object = (Model)data.get(position);
             if ( object != null)
@@ -99,10 +100,27 @@ public class OrderFood extends AppCompatActivity
                 {
                     case Model.image_type:
                         ((ImageViewHolder) holder).image.setImageResource(object.data);
+                        ((ImageViewHolder) holder).image.setOnClickListener(new View.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(View v)
+                            {
+                                Toast.makeText(OrderFood.this,"you have clicked " + ((Model) data.get(position)).data,Toast.LENGTH_SHORT).show();
+
+                            }
+                        });
                         break;
 
                     case Model.text_type:
                         ((TextViewHolder) holder).textView.setText(object.text);
+                        ((TextViewHolder) holder).textView.setOnClickListener(new View.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(View v)
+                            {
+                                Toast.makeText(OrderFood.this,"you have clicked: " + ((Model) data.get(position)).text,Toast.LENGTH_SHORT).show();
+                            }
+                        });
                         break;
                 }
             }
@@ -166,4 +184,6 @@ public class OrderFood extends AppCompatActivity
         //#######################################################
 
     }
+
+
 }

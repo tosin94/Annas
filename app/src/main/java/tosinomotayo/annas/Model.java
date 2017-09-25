@@ -28,7 +28,7 @@ public class Model
         this.text = text;
     }
 
-    public Model (int type,int data) //for the start
+    public Model (int type,int data) //for the image
     {
         this.type = type;
         this.data = data;
