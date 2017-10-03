@@ -2,6 +2,7 @@ package tosinomotayo.annas;
 
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -144,7 +145,7 @@ public class OrderFood extends AppCompatActivity
                 case Model.text_type:
                     return Model.text_type;
             }
-            return super.getItemViewType(position);
+            return super.getItemViewType(position);//potential code breaker ### not really sure i need this but \(-_ -)/
         }
 
         //#######################################################

@@ -43,5 +43,9 @@ the transfer of info could just be things like ID and unique info that can help 
 
 ###############
 
+*   when specifying spaces between two views, use dp but when specifying text size use sp
+    -dp (density independent)
+    -sp (scale independent)
+
 
 
