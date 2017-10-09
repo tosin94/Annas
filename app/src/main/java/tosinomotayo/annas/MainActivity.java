@@ -80,11 +80,12 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        Intent i;
         int id = item.getItemId();
 
         switch(id){
             case R.id.nav_gallery:
-                Intent i = new Intent(this, HairGallery.class);
+                i = new Intent(this, HairGallery.class);
                 this.startActivity(i);
                 break;
 
@@ -94,7 +95,8 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_book_appointement:
-
+                i = new Intent(this,HairAppointment.class);
+                this.startActivity(i);
                 break;
 
             case R.id.order_food:
