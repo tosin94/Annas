@@ -56,7 +56,7 @@
 
 
     <Button
-        android:id="@+id/dateBox"
+        android:id="@+id/dateButon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Select Date "
@@ -72,7 +72,7 @@
         android:layout_centerInParent="true"
         android:layout_alignParentLeft="true"
         android:text="Chosen Date:"
-        android:layout_below="@+id/dateBox"
+        android:layout_below="@+id/dateButon"
         android:layout_marginTop="20dp"
         android:textColor="@android:color/black"
         />
@@ -81,7 +81,7 @@
         android:id="@+id/chosenDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/dateBox"
+        android:layout_below="@+id/dateButon"
         android:layout_toRightOf="@+id/date"
         android:paddingLeft="10dp"
         android:inputType="date"
@@ -90,4 +90,62 @@
         android:onClick="ShowDatePicker"
         />
 
+    <TextView
+        android:id="@+id/selectHair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select HairStyle / Import from Basket"
+        android:layout_below="@+id/chosenDate"
+        android:layout_centerInParent="true"
+        android:paddingTop="20dp"
+        android:textColor="@android:color/black"
+        />
+
+    <ImageButton
+        android:id="@+id/selectHairstyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/gallery"
+        android:layout_below="@+id/selectHair"
+        android:layout_toStartOf="@+id/dateButon"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/white"
+        />
+
+    <ImageButton
+        android:id="@+id/importHair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/add_btn"
+        android:layout_below="@+id/selectHair"
+        android:layout_toEndOf="@+id/dateButon"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/white"
+        />
+
+    <Button
+        android:id="@+id/viewHair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Selected Hair"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/selectHairstyle"
+        android:paddingTop="5dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="BOOK APPOINTMENT"
+            android:textColor="@android:color/white"
+            android:background="@color/colorPrimary"
+            />
+    </RelativeLayout>
+
 </RelativeLayout>
+

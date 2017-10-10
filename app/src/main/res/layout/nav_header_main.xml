@@ -21,7 +21,7 @@
         android:layout_weight="0.33"
         android:paddingLeft="-30dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@drawable/icon" />
+        app:srcCompat="@mipmap/icon" />
 
     <TextView
         android:id="@+id/textView2"

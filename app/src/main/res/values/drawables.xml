@@ -9,4 +9,5 @@
     <item name="ic_contact" type="drawable">@android:drawable/sym_action_email</item>
     <item name="error" type="drawable">@android:drawable/stat_notify_error</item>
     <item name="add_btn" type="drawable">@android:drawable/ic_menu_add</item>
+    <item name="import_image" type="drawable">@android:drawable/ic_menu_gallery</item>
 </resources>
