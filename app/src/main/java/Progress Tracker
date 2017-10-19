@@ -6,7 +6,7 @@
 ##  ensuring images preserve their size in relation to the screen -> https://developer.android.com/training/multiscreen/screensizes.html    ##
     -> https://developer.android.com/guide/practices/screens_support.html#qualifiers ##
 
-#### 18th Sept - 25 sept 2017 OBJECTIVES ####
+#### OBJECTIVES ####
 
 *   Make a gallery for order food. Layout will be like that of just-eat. (possibly be using recycler view as there might be a lot of info to display)
 *   ADD another Gallery for the hair stylists ( most likely a listview for this)

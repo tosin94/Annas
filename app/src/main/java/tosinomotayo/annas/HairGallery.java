@@ -26,6 +26,8 @@ import android.widget.Toast;
 
 public class HairGallery extends AppCompatActivity
 {
+    private int pos;
+    private ActionMode actionMode;
     private static int[] mThumbIds =
             {//original definition was Integer[] but "int []" also works and helps with sending the intent.
             //not quite sure yet why Integer[] is prefered but use int [] for now
@@ -110,52 +112,83 @@ public class HairGallery extends AppCompatActivity
         GridView gallery = (GridView) findViewById(R.id.grid_gallery);
         gallery.setAdapter(new ImageAdapter(this));//sets the data behind the gridView
         //also corresponds to class ImageAdapter below
+
+        gallery.setClickable(true);
         gallery.setLongClickable(true);
-        gallery.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE_MODAL);// this is for batch operations
-        //TODO implement  the action mode for individual views
-        //the topic is "using the contextual action mode"
 
         gallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {//defining the inner class i will be using
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int [] temp = new int[1];
+                temp[0] = mThumbIds[position];
 
                 Intent i = new Intent(HairGallery.this, EnlargeGalleryImage.class);
-                i.putExtra("image", position);
-                i.putExtra("array", mThumbIds);
+                i.putExtra("array", temp);
                 startActivity(i);
+                temp = null;
             }
         });
 
-        gallery.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
+        gallery.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener()
+        {
             @Override
-            public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id)
+            {
 
-            }
+                view.setSelected(true);
+                pos = position;
+                if (actionMode != null) {//basically if actionMode is active then do nothing
+                    return false;
+                }
 
-            @Override
-            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                mode.getMenuInflater().inflate(R.menu.context_menu_gallery,menu);
+                actionMode = HairGallery.this.startActionMode(modeCallBack);
                 return true;
             }
-
-            @Override
-            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-                return false;
-            }
-
-            @Override
-            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                return false;
-            }
-
-            @Override
-            public void onDestroyActionMode(ActionMode mode) {
-
-            }
         });
+
 
 
     }//END ON CREATE
+
+    private ActionMode.Callback modeCallBack = new ActionMode.Callback()
+    {
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu)
+        {
+            mode.getMenuInflater().inflate(R.menu.context_menu_gallery,menu);
+            return true;
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu)
+        {
+            return false;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item)
+        {
+            int id = item.getItemId();
+
+            switch ( id )
+            {
+                case R.id.add_basket:
+                    EnlargeGalleryImage add_basket = new EnlargeGalleryImage();
+                    add_basket.AddToBasket(mThumbIds[pos]);
+                    return true;
+
+                default:
+                    return false;
+            }
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode)
+        {
+            actionMode = null;
+
+        }
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)

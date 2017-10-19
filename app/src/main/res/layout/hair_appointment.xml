@@ -110,6 +110,7 @@
         android:layout_toStartOf="@+id/dateButon"
         android:layout_marginTop="5dp"
         android:background="@android:color/white"
+        android:onClick="OpenHairGallery"
         />
 
     <ImageButton
@@ -121,6 +122,7 @@
         android:layout_toEndOf="@+id/dateButon"
         android:layout_marginTop="5dp"
         android:background="@android:color/white"
+        android:onClick="importFromBasket"
         />
 
     <Button
@@ -141,7 +143,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:text="BOOK APPOINTMENT"
+            android:text="BOOK NOW"
             android:textColor="@android:color/white"
             android:background="@color/colorPrimary"
             />

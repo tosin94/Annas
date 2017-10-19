@@ -1,6 +1,9 @@
 package tosinomotayo.annas;
 
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -13,9 +16,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+
+
+import java.util.ArrayList;
+
+import tosinomotayo.annas.DB.AppDatabase;
 
 
 public class EnlargeGalleryImage extends AppCompatActivity {
+
+    final private ArrayList<Integer> basket = new ArrayList<>();
+    private int[] tempImageHolder = new int[1];
+    SQLiteDatabase db;
+    ContentValues values;
+    AppDatabase dbHelper  = new AppDatabase(this); //TODO remember to close the datbase in onDestroy()
+    Cursor dbResults;
+    String [] columns = {"image"};
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,16 +43,17 @@ public class EnlargeGalleryImage extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
 
+        //db = dbHelper.getWritableDatabase();
+
+
         if (getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);//to allow up navigation
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        final int i = getIntent().getIntExtra("image",0);
-        //Log.d(getClass().getName(), "value = " + i);//logging
         final int [] imageHolder = getIntent().getIntArrayExtra("array");
 
-        zoomImage(imageHolder, i);
+        zoomImage(imageHolder, 0);
 
     }
 
@@ -48,6 +67,14 @@ public class EnlargeGalleryImage extends AppCompatActivity {
 
             case android.R.id.home:
                 finish();
+                return true;
+
+            case R.id.add_basket:
+                this.tempImageHolder = getIntent().getIntArrayExtra("array");
+                AddToBasket();
+                this.tempImageHolder = null;
+                //dbResults = db.query("BASKET",columns,)
+                //Toast.makeText(EnlargeGalleryImage.this,"test "+ this.basket.get(0) + " helooooo size is" + this.basket.size(),Toast.LENGTH_LONG).show();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -106,9 +133,33 @@ public class EnlargeGalleryImage extends AppCompatActivity {
 
         //to zoom back out
 
+    }
+
+    final public void AddToBasket()
+    {
+        db.execSQL("insert into BASKET value("+this.tempImageHolder[0]+")");
+        //this.basket.add(this.tempImageHolder[0]);
+    }
+
+    final public void AddToBasket(int pos )
+    {
+        db.execSQL("insert into BASKET value("+pos+")");
+        //this.basket.add(pos);
 
     }
 
+    @Override
+    protected void onPause()
+    {
+        //TODO place code for persistence here
+        super.onPause();
+    }
 
+    @Override
+    protected void onDestroy()
+    {
+        dbHelper.close();
+        super.onDestroy();
+    }
 }
 

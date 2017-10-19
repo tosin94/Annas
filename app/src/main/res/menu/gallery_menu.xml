@@ -11,9 +11,4 @@
         android:title="Search"
         app:showAsAction="always"/>
 
-    <item
-        android:id="@+id/hair_info"
-        android:title="Hair Info"
-        android:visible="true"
-        />
 </menu>

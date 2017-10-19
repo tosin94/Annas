@@ -1,16 +1,14 @@
 package tosinomotayo.annas;
 
-import android.app.DatePickerDialog;
-import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.DatePicker;
 import android.widget.EditText;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -18,37 +16,23 @@ import java.util.Calendar;
  * Created by tosinomotayo on 06/10/2017.
  */
 
-public class HairAppointment extends AppCompatActivity
+public class HairAppointment extends AppCompatActivity implements DatePickerFrag.DateHasChanged
 {
-    public static class DatePickerFrag extends DialogFragment
-            implements DatePickerDialog.OnDateSetListener
+    Calendar c;
+    @Override
+    public void refreshDate(Calendar calendar)
     {
+        //basically acts as a listener for the date set action
+        this.c = calendar;
 
-        static final Calendar c = Calendar.getInstance();
+        EditText chosenDate = (EditText) findViewById(R.id.chosenDate);
+        String dateFormat = "dd/MM/yy";
 
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState)
-        {
-            int year,month,day;
-            year = c.get(Calendar.YEAR);
-            month = c.get(Calendar.MONTH);
-            day = c.get(Calendar.DAY_OF_MONTH);
-
-            return new DatePickerDialog(getActivity(),this,year,month,day);
-        }
-
-        @Override
-        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth)
-        {
-            c.set(Calendar.YEAR, year);
-            c.set(Calendar.MONTH,month);
-            c.set(Calendar.DAY_OF_MONTH,dayOfMonth);
-
-        }
+        SimpleDateFormat format = new SimpleDateFormat(dateFormat);
+        chosenDate.setText(format.format(this.c.getTime()));//TODO need to find a way of making this run after the user has chosen the date
+        Log.d("Date changed:", "date has first");
 
     }
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -63,14 +47,20 @@ public class HairAppointment extends AppCompatActivity
         DialogFragment newFrag = new DatePickerFrag();
         newFrag.show(getSupportFragmentManager(),"datePicker");
 
-        Calendar c = DatePickerFrag.c;
-        EditText chosenDate = (EditText) findViewById(R.id.chosenDate);
-        String dateFormat = "dd/MM/yy";
+    }
 
-        SimpleDateFormat format = new SimpleDateFormat(dateFormat);
-        chosenDate.setText(format.format(c.getTime()));
+    public void OpenHairGallery(View v)
+    {
+        Intent i;
+        i = new Intent(this,HairGallery.class);
+        startActivity(i);
 
     }
 
+
+    public void importFromBasket(View v)
+    {
+
+    }
 
 }

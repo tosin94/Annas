@@ -64,7 +64,13 @@ public final class DatabaseContract
                         "OrderID    INT         NOT NULL,   " +
                         "CustomerID VARCHAR(20) NOT NULL,   " +
 
-                        "FOREIGN KEY(OrderId, CustomerID) references PendingOrders(OrderID, CustomerID));"
+                        "FOREIGN KEY(OrderId, CustomerID) references PendingOrders(OrderID, CustomerID))"
+                +
+
+                "CREATE TABLE BASKET("+
+                        "_ID    INT     auto_increment NOT NULL,   "+
+                        "image  INT     NOT NULL,   "+
+                        "PRIMARY KEY(_ID);"
 
         ;//SCRIPT_END
 
