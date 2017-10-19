@@ -3,7 +3,6 @@ package tosinomotayo.annas;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
@@ -21,7 +20,7 @@ public class DatePickerFrag extends DialogFragment
 
 {
     private Calendar c = Calendar.getInstance();
-    DateHasChanged listener;
+    private DateHasChanged listener;
 
     public interface DateHasChanged
     {
@@ -46,7 +45,7 @@ public class DatePickerFrag extends DialogFragment
         this.c.set(Calendar.YEAR, year);
         this.c.set(Calendar.MONTH,month);
         this.c.set(Calendar.DAY_OF_MONTH,dayOfMonth);
-        listener.refreshDate(c);
+        listener.refreshDate(this.c);
 
     }
 
@@ -57,7 +56,7 @@ public class DatePickerFrag extends DialogFragment
 
         try
         {
-            listener = (DateHasChanged)context;
+            this.listener = (DateHasChanged)context;
 
         }
 

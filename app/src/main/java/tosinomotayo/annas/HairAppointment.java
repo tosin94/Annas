@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -16,21 +17,34 @@ import java.util.Calendar;
  * Created by tosinomotayo on 06/10/2017.
  */
 
-public class HairAppointment extends AppCompatActivity implements DatePickerFrag.DateHasChanged
+public class HairAppointment extends AppCompatActivity implements DatePickerFrag.DateHasChanged,TimePickerFrag.TimeHasChanged
 {
-    Calendar c;
+    Calendar date,time;
+
+    @Override
+    public void TimeChangedListener(Calendar calendar)
+    {
+        time = calendar;
+        EditText selcetedTime = (EditText)findViewById(R.id.selectedTime);
+        int hour = time.get(Calendar.HOUR_OF_DAY);
+        int minute = time.get(Calendar.MINUTE);
+
+        String chosenTime = hour + "" + minute + "pm";
+        selcetedTime.setText(chosenTime);
+
+    }
+
     @Override
     public void refreshDate(Calendar calendar)
     {
         //basically acts as a listener for the date set action
-        this.c = calendar;
+        this.date = calendar;
 
         EditText chosenDate = (EditText) findViewById(R.id.chosenDate);
         String dateFormat = "dd/MM/yy";
 
         SimpleDateFormat format = new SimpleDateFormat(dateFormat);
-        chosenDate.setText(format.format(this.c.getTime()));//TODO need to find a way of making this run after the user has chosen the date
-        Log.d("Date changed:", "date has first");
+        chosenDate.setText(format.format(this.date.getTime()));
 
     }
 
@@ -60,6 +74,13 @@ public class HairAppointment extends AppCompatActivity implements DatePickerFrag
 
     public void importFromBasket(View v)
     {
+
+    }
+
+    public void ShowTimePicker(View v )
+    {
+        DialogFragment timePicker = new TimePickerFrag();
+        timePicker.show(getSupportFragmentManager(),"TimePicker");
 
     }
 
