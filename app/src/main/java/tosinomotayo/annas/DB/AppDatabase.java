@@ -1,48 +1,17 @@
 package tosinomotayo.annas.DB;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-
-import static tosinomotayo.annas.DB.DatabaseContract.DB_entry.*;
+import android.arch.persistence.room.Database;
+import android.arch.persistence.room.RoomDatabase;
 
 /**
  * Created by Sam.omotayo on 19/09/2017.
  */
 
-public class AppDatabase extends SQLiteOpenHelper
+@Database(entities = {Hair.class, Basket.class},version = 1)
+public abstract AppDatabase extends RoomDatabase
 {
+    public static AppDatabase INSTANCE;
 
-    private static final String DATABASE_NAME = "APP_DB";
-    private static final int DATABASE_VERSION = 1;
-
-
-    public AppDatabase(Context context)
-    {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
-    }
-
-    @Override
-    public void onCreate(SQLiteDatabase db)
-    {
-        db.execSQL(create_tables);//create_tables is from DB_entry (using static imports so i can use the variable directly)
-
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
-    {
-       try
-       {
-           //this is where i will place any modifications to the database
-           //if no modification, then this method should be empty
-
-       }
-       catch(Exception ex)
-       {
-           //TODO add a logger that writes to a file
-       }
-
-    }
+    public abstract BasketDao basketModel();
 
 }

@@ -34,7 +34,7 @@ public class TimePickerFrag extends DialogFragment implements TimePickerDialog.O
         minute = this.c.get(Calendar.MINUTE);
 
         return new TimePickerDialog(getActivity(),this,hour,minute,true);
-        //'this" is saying the listener is in ths class (I could have made it
+        //"this" is saying the listener is in ths class (I could have made it
         //the hairappointment class if i wanted, all i had to do was make it an enclosing class
         //instead i am using interfaces to implement the listener so i can send info to the parent activity, this is why i have overrided
         //onAttach() )

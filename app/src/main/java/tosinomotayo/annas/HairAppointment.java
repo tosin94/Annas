@@ -20,6 +20,7 @@ import java.util.Calendar;
 public class HairAppointment extends AppCompatActivity implements DatePickerFrag.DateHasChanged,TimePickerFrag.TimeHasChanged
 {
     Calendar date,time;
+    String chosenTime;
 
     @Override
     public void TimeChangedListener(Calendar calendar)
@@ -29,7 +30,12 @@ public class HairAppointment extends AppCompatActivity implements DatePickerFrag
         int hour = time.get(Calendar.HOUR_OF_DAY);
         int minute = time.get(Calendar.MINUTE);
 
-        String chosenTime = hour + "" + minute + "pm";
+        if ( hour >= 12)
+            chosenTime = hour + ":" + minute + "pm";
+
+        else
+            chosenTime = hour + ":" + minute + "am";
+
         selcetedTime.setText(chosenTime);
 
     }
@@ -83,5 +89,5 @@ public class HairAppointment extends AppCompatActivity implements DatePickerFrag
         timePicker.show(getSupportFragmentManager(),"TimePicker");
 
     }
-
+    
 }

@@ -70,7 +70,7 @@
                 android:id="@+id/dateButon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select Date "
+                android:text=" Select Date "
                 android:layout_below="@+id/surnameBox"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="20dp"
@@ -83,7 +83,7 @@
                 android:id="@+id/timeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Time Slot  "
+                android:text=" Choose Time Slot "
                 android:layout_below="@+id/dateButon"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="20dp"
@@ -109,7 +109,7 @@
                 android:layout_below="@+id/date"
                 android:textColor="@android:color/black"
                 android:layout_alignParentLeft="true"
-                android:paddingTop="20dp"
+                android:layout_marginTop="20dp"
                 />
 
             <EditText
@@ -118,23 +118,21 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/timeButton"
                 android:layout_toRightOf="@+id/date"
-                android:paddingLeft="10dp"
+                android:layout_marginLeft="10dp"
                 android:inputType="date"
                 android:focusable="false"
                 android:hint=""
-                android:onClick="ShowDatePicker"
                 />
 
             <EditText
                 android:id="@+id/selectedTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
+                android:layout_marginLeft="10dp"
                 android:inputType="time"
                 android:focusable="false"
                 android:layout_below="@+id/date"
                 android:layout_toRightOf="@+id/textViewSelectedTime"
-                android:onClick="ShowTimePicker"
                 />
 
             <TextView
@@ -144,7 +142,7 @@
                 android:text="Select HairStyle / Import from Basket"
                 android:layout_below="@+id/selectedTime"
                 android:layout_centerInParent="true"
-                android:paddingTop="20dp"
+                android:layout_marginTop="20dp"
                 android:textColor="@android:color/black"
                 />
 
@@ -176,7 +174,7 @@
                 android:id="@+id/viewHair"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="View Selected Hair"
+                android:text=" View Selected Hair "
                 android:layout_centerInParent="true"
                 android:textColor="@android:color/white"
                 android:background="@color/colorPrimary"
@@ -187,7 +185,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BOOK NOW"
+                android:text=" BOOK NOW "
                 android:textColor="@android:color/white"
                 android:background="@color/colorPrimary"
                 android:layout_below="@+id/viewHair"
