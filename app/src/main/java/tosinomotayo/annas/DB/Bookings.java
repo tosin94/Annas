@@ -1,4 +1,4 @@
-package tosinomotayo.annas;
+package tosinomotayo.annas.DB;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
@@ -10,13 +10,11 @@ import java.util.Date;
  */
 
 @Entity
-public class MyBookings
+public class Bookings
 {
     public @PrimaryKey String id;
 
     public Date BookingDate;
-
-
 
 
 }
