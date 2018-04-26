@@ -105,7 +105,8 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_share:
-
+                i = new Intent(this,TestDBActivity.class);
+                this.startActivity(i);
                 break;
         }
 

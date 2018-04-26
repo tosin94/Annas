@@ -2,6 +2,7 @@ package tosinomotayo.annas.DB;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 /**
  * Created by tosinomotayo on 04/12/2017.
@@ -10,10 +11,10 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity
 public class Hair
 {
-    public @PrimaryKey String ID;
+    public @NonNull @PrimaryKey String id;
 
-    public String ImageName;
-    public float ImagePrice;
-    public String ImagePath;
+    public String name;
+    public double price;
+    public String details;
 
 }

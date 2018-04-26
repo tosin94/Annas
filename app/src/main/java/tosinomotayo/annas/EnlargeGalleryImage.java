@@ -29,9 +29,9 @@ public class EnlargeGalleryImage extends AppCompatActivity {
 
     final private ArrayList<Integer> basket = new ArrayList<>();
     private int[] tempImageHolder = new int[1];
-    SQLiteDatabase db;
+    //SQLiteDatabase db;
     ContentValues values;
-    AppDatabase dbHelper  = new AppDatabase(this); //TODO remember to close the datbase in onDestroy()
+    //AppDatabase dbHelper  = new AppDatabase(this); //TODO remember to close the datbase in onDestroy()
     Cursor dbResults;
     String [] columns = {"image"};
 
@@ -71,7 +71,7 @@ public class EnlargeGalleryImage extends AppCompatActivity {
 
             case R.id.add_basket:
                 this.tempImageHolder = getIntent().getIntArrayExtra("array");
-                AddToBasket();
+                //AddToBasket();
                 this.tempImageHolder = null;
                 //dbResults = db.query("BASKET",columns,)
                 //Toast.makeText(EnlargeGalleryImage.this,"test "+ this.basket.get(0) + " helooooo size is" + this.basket.size(),Toast.LENGTH_LONG).show();
@@ -135,7 +135,7 @@ public class EnlargeGalleryImage extends AppCompatActivity {
 
     }
 
-    final public void AddToBasket()
+    /**final public void AddToBasket()
     {
         db.execSQL("insert into BASKET value("+this.tempImageHolder[0]+")");
         //this.basket.add(this.tempImageHolder[0]);
@@ -146,7 +146,7 @@ public class EnlargeGalleryImage extends AppCompatActivity {
         db.execSQL("insert into BASKET value("+pos+")");
         //this.basket.add(pos);
 
-    }
+    }**/
 
     @Override
     protected void onPause()
@@ -158,7 +158,7 @@ public class EnlargeGalleryImage extends AppCompatActivity {
     @Override
     protected void onDestroy()
     {
-        dbHelper.close();
+        //dbHelper.close();
         super.onDestroy();
     }
 }

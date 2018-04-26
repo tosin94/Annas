@@ -174,7 +174,7 @@ public class HairGallery extends AppCompatActivity
             {
                 case R.id.add_basket:
                     EnlargeGalleryImage add_basket = new EnlargeGalleryImage();
-                    add_basket.AddToBasket(mThumbIds[pos]);
+                    //add_basket.AddToBasket(mThumbIds[pos]);
                     return true;
 
                 default:

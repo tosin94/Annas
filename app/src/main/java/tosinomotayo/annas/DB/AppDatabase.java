@@ -9,14 +9,14 @@ import android.content.Context;
  * Created by Sam.omotayo on 19/09/2017.
  */
 
-@Database(entities = {Hair.class, Basket.class},version = 1)
+@Database(entities = {Hair.class},version = 1)
 public abstract class AppDatabase extends RoomDatabase
 {
     public static AppDatabase INSTANCE;
 
-    public abstract BasketDao basketModel();
+    //public abstract BasketDao basketModel();
     public abstract HairDao hairModel();
-    public abstract BookingsDao bookingModel();
+    //public abstract BookingsDao bookingModel();
 
 
     public static AppDatabase getDatebaseBuilder(Context context)
